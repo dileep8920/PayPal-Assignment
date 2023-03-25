@@ -6,4 +6,5 @@ import com.paypal.model.Sprint;
 
 public interface SprintRepo extends JpaRepository<Sprint, Integer>{
 
+
 }

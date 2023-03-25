@@ -11,8 +11,8 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(SpringException.class)
-	public ResponseEntity<MyErrorDetails> springExceptionHandler(SpringException se, WebRequest we){
+	@ExceptionHandler(SprintException.class)
+	public ResponseEntity<MyErrorDetails> springExceptionHandler(SprintException se, WebRequest we){
 		
 		MyErrorDetails med= new MyErrorDetails(LocalDateTime.now(), se.getMessage(), we.getDescription(false));
 		

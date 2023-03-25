@@ -1,12 +1,12 @@
 package com.paypal.exception;
 
-public class SpringException extends RuntimeException{
+public class SprintException extends RuntimeException{
 
-	public SpringException() {
+	public SprintException() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SpringException(String message) {
+	public SprintException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}

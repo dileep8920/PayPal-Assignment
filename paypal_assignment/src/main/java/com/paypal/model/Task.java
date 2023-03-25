@@ -1,6 +1,10 @@
 package com.paypal.model;
 
+import java.util.Optional;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,17 +29,16 @@ public class Task {
 	
 	private String taskDescription;
 	
-	
-	    private TypeOfTask type;
+	@Enumerated(EnumType.STRING)
+	    private TypeOfTask typeOfTask;
 
 	    @ManyToOne
-	    @JoinColumn(name = "sprint_id")
 	    private Sprint sprint;
 
 	    @ManyToOne
-	    @JoinColumn(name = "user_id")
-	    private User assignee;
+	    private User user;
 
-	    private StatusOfTask status;
+	    @Enumerated(EnumType.STRING)
+	    private StatusOfTask statusOfTask;
 	
 }
