@@ -32,7 +32,7 @@ public class SprintController {
 	
 	@GetMapping("/getAllTask/{sprintId}")
 	public ResponseEntity<List<Task>> getAllTasksInSprint(@PathVariable("sprintId") Integer sprintId){
-		List<Task> task=sService.getAllTasksInSprint(sprintId);
+		List<Task> task=sService.getAllTasks(sprintId);
 		
 		return new ResponseEntity<List<Task>>(task,HttpStatus.OK);
 	}

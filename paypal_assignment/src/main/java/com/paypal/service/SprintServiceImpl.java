@@ -1,6 +1,5 @@
 package com.paypal.service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +36,7 @@ public class SprintServiceImpl implements SprintService{
 	}
 
 	@Override
-	public List<Task> getAllTasksInSprint(Integer sprintId) throws SprintException {
+	public List<Task> getAllTasks(Integer sprintId) throws SprintException {
 		// TODO Auto-generated method stub
 		return sRepo.findById(sprintId).get().getTasksList();
 	}
@@ -52,7 +51,7 @@ public class SprintServiceImpl implements SprintService{
 
 
 	@Override
-	public Sprint deleteSprintById(Integer sprintId) throws SprintException {
+	public Sprint removeSprintById(Integer sprintId) throws SprintException {
 		// TODO Auto-generated method stub
 		Sprint sprint = sRepo.findById(sprintId)
 	            .orElseThrow(() -> new SprintException("Sprint is not there with this " + sprintId));
@@ -62,7 +61,7 @@ public class SprintServiceImpl implements SprintService{
 	}
 
 	@Override
-	public String addTaskToSprint(Integer taskId, Integer sprintId) throws SprintException, TaskException {
+	public String addTask(Integer taskId, Integer sprintId) throws SprintException, TaskException {
 		// TODO Auto-generated method stub
         Task t = tRepo.findById(taskId).orElseThrow(() -> new TaskException("Task is not there with this " + taskId));
 		

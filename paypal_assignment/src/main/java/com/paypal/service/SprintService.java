@@ -15,14 +15,14 @@ public interface SprintService {
 
 public Sprint createSprint(Sprint sprint) throws SprintException;
 	
-	public List<Task> getAllTasksInSprint(Integer sprintId) throws SprintException;
+	public List<Task> getAllTasks(Integer sprintId) throws SprintException;
 	
 	public Sprint getSprintById(Integer sprintId) throws SprintException;
 	
 	
-	public Sprint deleteSprintById (Integer sprintId) throws SprintException;
+	public Sprint removeSprintById (Integer sprintId) throws SprintException;
 	
-	public String addTaskToSprint (Integer taskId, Integer sprintId) throws SprintException, TaskException;
+	public String addTask (Integer taskId, Integer sprintId) throws SprintException, TaskException;
 	
 	public  List<Sprint> getAllSprints();
 
