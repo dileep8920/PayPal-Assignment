@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,7 @@ public class SprintController {
 	}
 	
 	@GetMapping("/getAllTask/{sprintId}")
-	public ResponseEntity<List<Task>> getAllTasksInSprint(@PathVariable("sprintId") Integer sprintId){
+	public ResponseEntity<List<Task>> getAllTasks(@PathVariable("sprintId") Integer sprintId){
 		List<Task> task=sService.getAllTasks(sprintId);
 		
 		return new ResponseEntity<List<Task>>(task,HttpStatus.OK);
@@ -41,10 +42,19 @@ public class SprintController {
 	@GetMapping("/getSprintById/{sprintId}")
 	public ResponseEntity<Sprint> getSprintById(@PathVariable("sprintId") Integer sprintId) throws SprintException {
 		
-		Sprint getSprint =  sService.getSprintById(sprintId);
+		Sprint s =  sService.getSprintById(sprintId);
 		
-		return new ResponseEntity<Sprint>(getSprint,HttpStatus.OK);
+		return new ResponseEntity<Sprint>(s,HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/deleteSprint")
+	public ResponseEntity<Sprint> removeSprint(@PathVariable("sprintId") Integer sprintId){
+		
+		Sprint s= sService.removeSprintById(sprintId);
+		
+		return new ResponseEntity<Sprint>(s,HttpStatus.ACCEPTED);
+	}
+	
 	
 	
 }

@@ -28,6 +28,8 @@ public class User {
 	
 	private String userEmail;
 	
+	private String userMobileNo;
+	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 }
