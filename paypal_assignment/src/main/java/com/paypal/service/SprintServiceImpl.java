@@ -61,13 +61,12 @@ public class SprintServiceImpl implements SprintService{
 	}
 
 	@Override
-	public String addTask(Integer taskId, Integer sprintId) throws SprintException, TaskException {
+	public String taskAdd(Integer taskId, Integer sprintId) throws SprintException, TaskException {
 		// TODO Auto-generated method stub
-        Task t = tRepo.findById(taskId).orElseThrow(() -> new TaskException("Task is not there with this " + taskId));
-		
         Sprint s = sRepo.findById(sprintId).orElseThrow(() -> new SprintException("Sprint is not there with this " + sprintId));
-		if(t.getSprint() != null) {
-			throw new SprintException("task is Already there with this " + sprintId);
+        Task t = tRepo.findById(taskId).orElseThrow(() -> new TaskException("Task is not there with this " + taskId));
+        if(t.getSprint() != null) {
+			throw new SprintException("task is Already present with this " + sprintId);
 		} else {
 			t.setSprint(s);
 			s.getTasksList().add(t);

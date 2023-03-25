@@ -22,7 +22,7 @@ public Sprint createSprint(Sprint sprint) throws SprintException;
 	
 	public Sprint removeSprintById (Integer sprintId) throws SprintException;
 	
-	public String addTask (Integer taskId, Integer sprintId) throws SprintException, TaskException;
+	public String taskAdd (Integer taskId, Integer sprintId) throws SprintException, TaskException;
 	
 	public  List<Sprint> getAllSprints();
 

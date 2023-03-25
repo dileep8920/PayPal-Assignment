@@ -40,7 +40,7 @@ public class SprintController {
 	
 	
 	@GetMapping("/getSprintById/{sprintId}")
-	public ResponseEntity<Sprint> getSprintById(@PathVariable("sprintId") Integer sprintId) throws SprintException {
+	public ResponseEntity<Sprint> getSprintById(@PathVariable("sprintId") Integer sprintId)  {
 		
 		Sprint s =  sService.getSprintById(sprintId);
 		
@@ -56,5 +56,23 @@ public class SprintController {
 	}
 	
 	
+	@PostMapping("/addTask/{tId}/{sId}")
+	public ResponseEntity<String> taskAdd(@PathVariable("tId") Integer tId, @PathVariable("sId") Integer sId){
+		String add=sService.taskAdd(sId, tId);
+		
+		return new ResponseEntity<String>(add,HttpStatus.OK);
+	}
 	
+	@GetMapping("/getallsprint")
+	public ResponseEntity<List<Sprint>> getAllSprint(){
+		List<Sprint> lst=sService.getAllSprints();
+		
+		return new ResponseEntity<List<Sprint>>(lst,HttpStatus.ACCEPTED);
+	}
+	
+	public ResponseEntity<List<Task>> getAllTask(){
+		List<Task> lst=sService.getAllTasks();
+		
+		return new ResponseEntity<List<Task>>(lst,HttpStatus.ACCEPTED);
+	}
 }
