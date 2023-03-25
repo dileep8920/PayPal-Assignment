@@ -3,11 +3,11 @@ package com.paypal.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.paypal.enums.StatusOfTask;
 import com.paypal.exception.SprintException;
 import com.paypal.exception.TaskException;
 import com.paypal.exception.UserException;
 import com.paypal.model.Sprint;
-import com.paypal.model.StatusOfTask;
 import com.paypal.model.Task;
 import com.paypal.model.User;
 

@@ -1,4 +1,4 @@
-package com.paypal.model;
+package com.paypal.enums;
 
 public enum TypeOfTask {
 
